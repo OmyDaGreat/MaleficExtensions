@@ -1,0 +1,21 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:xyz.malefic.extensions.composables////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/index.html
+$dokka.location:xyz.malefic.extensions.composables//animateVisibility/androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/animate-visibility.html
+$dokka.location:xyz.malefic.extensions.composables//clickableIf/androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Boolean#kotlin.String?#androidx.compose.ui.semantics.Role?#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/clickable-if.html
+$dokka.location:xyz.malefic.extensions.composables//clickableWithRipple/androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.String?#androidx.compose.ui.semantics.Role?#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/clickable-with-ripple.html
+$dokka.location:xyz.malefic.extensions.composables//gridItems/androidx.compose.foundation.lazy.LazyListScope#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]#kotlin.Int#androidx.compose.ui.Modifier#androidx.compose.foundation.layout.Arrangement.Horizontal#kotlin.Function2[androidx.compose.foundation.layout.BoxScope,TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/grid-items.html
+$dokka.location:xyz.malefic.extensions.composables//modifyIf/androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.ui.Modifier/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/modify-if.html
+$dokka.location:xyz.malefic.extensions.composables//modifyIfElse/androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.ui.Modifier#androidx.compose.ui.Modifier/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/modify-if-else.html
+$dokka.location:xyz.malefic.extensions.composables//roundedBackgroundWithPadding/androidx.compose.ui.Modifier#androidx.compose.ui.graphics.Color#androidx.compose.ui.unit.Dp#androidx.compose.ui.unit.Dp/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/rounded-background-with-padding.html
+$dokka.location:xyz.malefic.extensions.composables//scroll/androidx.compose.foundation.lazy.LazyListState#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/scroll.html
+$dokka.location:xyz.malefic.extensions.composables//scrollToTop/androidx.compose.foundation.lazy.LazyListState#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/scroll-to-top.html
+$dokka.location:xyz.malefic.extensions.composables//showIf/androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/show-if.html
+$dokka.location:xyz.malefic.extensions.precompose////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.precompose/index.html
+$dokka.location:xyz.malefic.extensions.precompose//gate/moe.tlaster.precompose.navigation.Navigator#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.precompose/gate.html
+$dokka.location:xyz.malefic.extensions////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions/index.html
+$dokka.location:xyz.malefic.extensions//get/kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])?]#kotlin.Int#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions/get.html
+xyz.malefic.extensions
+xyz.malefic.extensions.composables
+xyz.malefic.extensions.precompose
+
