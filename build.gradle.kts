@@ -10,6 +10,7 @@ plugins {
   id("maven-publish")
   alias(libs.plugins.spotless)
   alias(libs.plugins.central)
+  alias(libs.plugins.dokka)
   signing
 }
 
@@ -87,7 +88,11 @@ signing {
 
 centralPortalPlus {
   url = localMavenRepo
-  username = project.findProperty("centralPortalUsername") as String? ?: ""
-  password = project.findProperty("centralPortalPassword") as String? ?: ""
+  username = System.getenv("centralPortalUsername") ?: ""
+  password = System.getenv("centralPortalPassword") ?: ""
   publishingType = PublishingType.AUTOMATIC
+}
+
+tasks.dokkaHtml {
+  outputDirectory.set(layout.buildDirectory.get().asFile.resolve("dokka"))
 }
