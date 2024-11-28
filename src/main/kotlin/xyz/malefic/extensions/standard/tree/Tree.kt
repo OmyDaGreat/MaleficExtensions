@@ -1,6 +1,4 @@
-package xyz.malefic.extensions.standard.file
-
-import java.io.File
+package xyz.malefic.extensions.standard.tree
 
 /**
  * Data class representing a tree node.
@@ -51,17 +49,3 @@ data class TreeNode<T>(val value: T, val children: List<TreeNode<T>> = emptyList
     return TreeNode(this.value, filteredChildren)
   }
 }
-
-/**
- * Recursively builds a file tree from a given file.
- *
- * This function traverses the directory structure starting from the given root file and constructs
- * a tree where each node represents a file or directory. The root node represents the initial file,
- * and its children represent the files and directories contained within it. This process is
- * repeated recursively for each directory.
- *
- * @return The root node of the file tree, where each node contains a file and its children.
- * @receiver The root file to build the tree from.
- */
-fun File.buildFileTree(): TreeNode<File> =
-  TreeNode(this, listFiles()?.map { it.buildFileTree() } ?: emptyList())
