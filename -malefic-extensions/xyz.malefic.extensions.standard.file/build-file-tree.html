@@ -2,7 +2,7 @@
 <html class="no-js">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <title>get</title>
+    <title>buildFileTree</title>
     <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
     <script>var pathToRoot = "../../";</script>
     <script>document.documentElement.classList.replace("no-js","js");</script>
@@ -45,7 +45,7 @@
                     </a>
             </div>
             <div class="library-version">
-1.0.0            </div>
+1.1.0            </div>
         </div>
         <div class="filter-section" id="filter-section">
                 <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":dokkaHtml/main">jvm</button>
@@ -61,12 +61,12 @@
                 <div class="sidebar--inner" id="sideMenu"></div>
             </div>
             <div id="main">
-<div class="main-content" data-page-type="member" id="content" pageIds="MaleficExtensions::xyz.malefic.extensions//get/kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])?]#kotlin.Int#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration//769193423">
-  <div class="breadcrumbs"><a href="../../index.html">MaleficExtensions</a><span class="delimiter">/</span><a href="index.html">xyz.malefic.extensions</a><span class="delimiter">/</span><span class="current">get</span></div>
+<div class="main-content" data-page-type="member" id="content" pageIds="MaleficExtensions::xyz.malefic.extensions.standard.file//buildFileTree/java.io.File#/PointingToDeclaration//769193423">
+  <div class="breadcrumbs"><a href="../../index.html">MaleficExtensions</a><span class="delimiter">/</span><a href="index.html">xyz.malefic.extensions.standard.file</a><span class="delimiter">/</span><span class="current">buildFileTree</span></div>
   <div class="cover ">
-    <h1 class="cover"><span><span>get</span></span></h1>
+    <h1 class="cover"><span>build</span><wbr></wbr><span>File</span><wbr></wbr><span><span>Tree</span></span></h1>
   </div>
-  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">inline operator </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="get.html">T</a><span class="token operator">&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="get.html">T</a><span class="token operator">?</span><span class="token operator">&gt;</span><span class="token punctuation">.</span><a href="get.html"><span class="token function">get</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">default<span class="token operator">: </span><a href="get.html">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="get.html">T</a></div><p class="paragraph">Extension function for <code class="lang-kotlin">List&lt;T?&gt;</code> that allows getting an element at a specified index with a default value if the element is null or the index is out of bounds.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">The element at the specified index or the default value if not found.</p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>T</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The type of elements in the list, which can be nullable.</p></div></div></div></div><div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>index</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The index of the element to retrieve.</p></div></div></div></div><div class="table-row" data-filterable-current=":dokkaHtml/main" data-filterable-set=":dokkaHtml/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>default</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The default value to return if the element at the specified index is null or the index is out of bounds.</p></div></div></div></div></div></div></div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":dokkaHtml/main"><div class="symbol monospace"><span class="token keyword">fun </span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html">File</a><span class="token punctuation">.</span><a href="build-file-tree.html"><span class="token function">buildFileTree</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-tree-node/index.html">TreeNode</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/io/File.html">File</a><span class="token operator">&gt;</span></div><p class="paragraph">Recursively builds a file tree from a given file.</p><p class="paragraph">This function traverses the directory structure starting from the given root file and constructs a tree where each node represents a file or directory. The root node represents the initial file, and its children represent the files and directories contained within it. This process is repeated recursively for each directory.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">The root node of the file tree, where each node contains a file and its children.</p></span><span class="kdoc-tag"><h4 class="">Receiver</h4><p class="paragraph">The root file to build the tree from.</p></span></div></div>
 </div>
       <div class="footer">
         <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span
