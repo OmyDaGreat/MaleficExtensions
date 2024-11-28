@@ -1,6 +1,6 @@
 import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
 
-val v = "1.0.0"
+val v = "1.1.0"
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
@@ -53,7 +53,7 @@ publishing {
       pom {
         name.set("MaleficExtensions")
         description.set("A Compose Desktop library containing common extension methods")
-        url.set("https://github.com/OmyDaGreat/MaleficExtensions")
+        url.set("https://github.com/MaleficCompose/MaleficExtensions")
         developers {
           developer {
             name.set("Om Gupta")
@@ -67,9 +67,9 @@ publishing {
           }
         }
         scm {
-          connection.set("scm:git:git://github.com/OmyDaGreat/MaleficExtensions.git")
-          developerConnection.set("scm:git:ssh://github.com/OmyDaGreat/MaleficExtensions.git")
-          url.set("https://github.com/OmyDaGreat/MaleficExtensions")
+          connection.set("scm:git:git://github.com/MaleficCompose/MaleficExtensions.git")
+          developerConnection.set("scm:git:ssh://github.com/MaleficCompose/MaleficExtensions.git")
+          url.set("https://github.com/MaleficCompose/MaleficExtensions")
         }
       }
     }
