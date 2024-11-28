@@ -17,17 +17,19 @@ $dokka.location:xyz.malefic.extensions.standard.file////PointingToDeclaration/-
 $dokka.location:xyz.malefic.extensions.standard.file//buildFileTree/java.io.File#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/build-file-tree.html
 $dokka.location:xyz.malefic.extensions.standard.file//loadFileContent/java.io.File#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/load-file-content.html
 $dokka.location:xyz.malefic.extensions.standard.file//saveFile/java.io.File#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/save-file.html
-$dokka.location:xyz.malefic.extensions.standard.file/TreeNode///PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/index.html
-$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/TreeNode/#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.List[xyz.malefic.extensions.standard.file.TreeNode[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/-tree-node.html
-$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/children/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/children.html
-$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/filter/#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Boolean]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/filter.html
-$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/flattenTree/#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/flatten-tree.html
-$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/toString/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/to-string.html
-$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/value/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/value.html
+$dokka.location:xyz.malefic.extensions.standard.tree////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/index.html
+$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode///PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/index.html
+$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/TreeNode/#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.List[xyz.malefic.extensions.standard.tree.TreeNode[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/-tree-node.html
+$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/children/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/children.html
+$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/filter/#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Boolean]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/filter.html
+$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/flattenTree/#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/flatten-tree.html
+$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/toString/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/to-string.html
+$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/value/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/value.html
 $dokka.location:xyz.malefic.extensions.standard////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard/index.html
 $dokka.location:xyz.malefic.extensions.standard//get/kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])?]#kotlin.Int#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard/get.html
 xyz.malefic.extensions.composables
 xyz.malefic.extensions.precompose
 xyz.malefic.extensions.standard
 xyz.malefic.extensions.standard.file
+xyz.malefic.extensions.standard.tree
 
