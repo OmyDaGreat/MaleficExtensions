@@ -15,13 +15,14 @@ $dokka.location:xyz.malefic.extensions.precompose////PointingToDeclaration/-mal
 $dokka.location:xyz.malefic.extensions.precompose//gate/moe.tlaster.precompose.navigation.Navigator#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.precompose/gate.html
 $dokka.location:xyz.malefic.extensions.standard.file////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/index.html
 $dokka.location:xyz.malefic.extensions.standard.file//buildFileTree/java.io.File#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/build-file-tree.html
-$dokka.location:xyz.malefic.extensions.standard.file//filter/xyz.malefic.extensions.standard.file.TreeNode[java.io.File]#kotlin.Function1[java.io.File,kotlin.Boolean]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/filter.html
-$dokka.location:xyz.malefic.extensions.standard.file//flattenTree/#xyz.malefic.extensions.standard.file.TreeNode[java.io.File]#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/flatten-tree.html
 $dokka.location:xyz.malefic.extensions.standard.file//loadFileContent/java.io.File#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/load-file-content.html
 $dokka.location:xyz.malefic.extensions.standard.file//saveFile/java.io.File#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/save-file.html
 $dokka.location:xyz.malefic.extensions.standard.file/TreeNode///PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/index.html
 $dokka.location:xyz.malefic.extensions.standard.file/TreeNode/TreeNode/#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.List[xyz.malefic.extensions.standard.file.TreeNode[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/-tree-node.html
 $dokka.location:xyz.malefic.extensions.standard.file/TreeNode/children/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/children.html
+$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/filter/#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Boolean]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/filter.html
+$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/flattenTree/#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/flatten-tree.html
+$dokka.location:xyz.malefic.extensions.standard.file/TreeNode/toString/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/to-string.html
 $dokka.location:xyz.malefic.extensions.standard.file/TreeNode/value/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/-tree-node/value.html
 $dokka.location:xyz.malefic.extensions.standard////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard/index.html
 $dokka.location:xyz.malefic.extensions.standard//get/kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])?]#kotlin.Int#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard/get.html
