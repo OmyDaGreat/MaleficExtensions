@@ -1,6 +1,6 @@
 import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
 
-val v = "1.1.2"
+val v = "1.1.3"
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
@@ -41,6 +41,12 @@ java {
   targetCompatibility = JavaVersion.VERSION_17
   withJavadocJar()
   withSourcesJar()
+}
+
+kotlin {
+  jvmToolchain {
+    this.languageVersion.set(JavaLanguageVersion.of(17))
+  }
 }
 
 publishing {
@@ -96,5 +102,5 @@ centralPortalPlus {
 }
 
 tasks.dokkaHtml {
-  outputDirectory.set(layout.buildDirectory.get().asFile.resolve("dokka"))
+  outputDirectory.set(layout.buildDirectory.dir("dokka"))
 }
