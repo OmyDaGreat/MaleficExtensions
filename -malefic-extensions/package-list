@@ -17,6 +17,8 @@ $dokka.location:xyz.malefic.extensions.standard.file////PointingToDeclaration/-
 $dokka.location:xyz.malefic.extensions.standard.file//buildFileTree/java.io.File#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/build-file-tree.html
 $dokka.location:xyz.malefic.extensions.standard.file//loadFileContent/java.io.File#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/load-file-content.html
 $dokka.location:xyz.malefic.extensions.standard.file//saveFile/java.io.File#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/save-file.html
+$dokka.location:xyz.malefic.extensions.standard.inputstream////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.inputstream/index.html
+$dokka.location:xyz.malefic.extensions.standard.inputstream//grass/kotlin.Any#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.inputstream/grass.html
 $dokka.location:xyz.malefic.extensions.standard.string////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/index.html
 $dokka.location:xyz.malefic.extensions.standard.string//either/kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/either.html
 $dokka.location:xyz.malefic.extensions.standard.tree////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/index.html
@@ -33,6 +35,7 @@ xyz.malefic.extensions.composables
 xyz.malefic.extensions.precompose
 xyz.malefic.extensions.standard
 xyz.malefic.extensions.standard.file
+xyz.malefic.extensions.standard.inputstream
 xyz.malefic.extensions.standard.string
 xyz.malefic.extensions.standard.tree
 
