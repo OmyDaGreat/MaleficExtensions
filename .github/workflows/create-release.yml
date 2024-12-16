@@ -32,17 +32,14 @@ jobs:
             echo "Found version in commit."
             VERSION=$(grep -Eo 'version [0-9]+\\.[0-9]+\\.[0-9]+' commit_info.txt | head -1 | cut -d ' ' -f2)
             echo "::set-output name=version::$VERSION"
-            exit 0
           else
             echo "No version pattern found."
             echo "::set-output name=version::none"
             exit 0
         shell: bash
-        continue-on-error: true
 
       - name: Get previous release tag
         id: get_previous_tag
-        if: steps.version_check.outputs.version != 'none'
         run: |
           PREVIOUS_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
           echo "::set-output name=previous_tag::$PREVIOUS_TAG"
@@ -50,7 +47,6 @@ jobs:
 
       - name: Generate changelog
         id: changelog
-        if: steps.version_check.outputs.version != 'none'
         run: |
           if [ "${{ steps.get_previous_tag.outputs.previous_tag }}" != "" ]; then
             git log ${{ steps.get_previous_tag.outputs.previous_tag }}..HEAD --oneline > changelog.txt
@@ -60,7 +56,6 @@ jobs:
         shell: bash
 
       - name: Create GitHub Release
-        if: steps.version_check.outputs.version != 'none'
         uses: softprops/action-gh-release@v2
         with:
           body: |
