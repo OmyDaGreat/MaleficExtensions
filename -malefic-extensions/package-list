@@ -22,7 +22,10 @@ $dokka.location:xyz.malefic.extensions.standard.file//saveFile/java.io.File#kotl
 $dokka.location:xyz.malefic.extensions.standard.inputstream////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.inputstream/index.html
 $dokka.location:xyz.malefic.extensions.standard.inputstream//grass/kotlin.Any#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.inputstream/grass.html
 $dokka.location:xyz.malefic.extensions.standard.string////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/index.html
+$dokka.location:xyz.malefic.extensions.standard.string//containsAny/kotlin.String#kotlin.Array[kotlin.String]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/contains-any.html
 $dokka.location:xyz.malefic.extensions.standard.string//either/kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/either.html
+$dokka.location:xyz.malefic.extensions.standard.string//fromHex/kotlin.String#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/from-hex.html
+$dokka.location:xyz.malefic.extensions.standard.string//toHex/kotlin.String#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/to-hex.html
 $dokka.location:xyz.malefic.extensions.standard.tree////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/index.html
 $dokka.location:xyz.malefic.extensions.standard.tree/TreeNode///PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/index.html
 $dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/TreeNode/#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.List[xyz.malefic.extensions.standard.tree.TreeNode[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/-tree-node.html
