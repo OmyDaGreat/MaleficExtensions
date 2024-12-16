@@ -28,34 +28,37 @@ jobs:
       - name: Check for version pattern
         id: version_check
         run: |
-          if grep -Eo 'version [0-9]+\\.[0-9]+\\.[0-9]+' commit_info.txt; then
+          if grep -Eo 'version [0-9]+\.[0-9]+\.[0-9]+' commit_info.txt; then
             echo "Found version in commit."
-            VERSION=$(grep -Eo 'version [0-9]+\\.[0-9]+\\.[0-9]+' commit_info.txt | head -1 | cut -d ' ' -f2)
-            echo "::set-output name=version::$VERSION"
+            VERSION=$(grep -Eo 'version [0-9]+\.[0-9]+\.[0-9]+' commit_info.txt | head -1 | cut -d ' ' -f2)
+            echo "version=$VERSION" >> $GITHUB_ENV
           else
-            echo "No version pattern found."
-            echo "::set-output name=version::none"
-            exit 0
+            echo "No version pattern found. Exiting gracefully."
+            echo "version=none" >> $GITHUB_ENV
+          fi
         shell: bash
 
       - name: Get previous release tag
         id: get_previous_tag
+        if: env.version != 'none'
         run: |
           PREVIOUS_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          echo "::set-output name=previous_tag::$PREVIOUS_TAG"
+          echo "previous_tag=$PREVIOUS_TAG" >> $GITHUB_ENV
         shell: bash
 
       - name: Generate changelog
         id: changelog
+        if: env.version != 'none'
         run: |
-          if [ "${{ steps.get_previous_tag.outputs.previous_tag }}" != "" ]; then
-            git log ${{ steps.get_previous_tag.outputs.previous_tag }}..HEAD --oneline > changelog.txt
+          if [ "$PREVIOUS_TAG" != "" ]; then
+            git log $PREVIOUS_TAG..HEAD --oneline > changelog.txt
           else
             git log --oneline > changelog.txt
           fi
         shell: bash
 
       - name: Create GitHub Release
+        if: env.version != 'none'
         uses: softprops/action-gh-release@v2
         with:
           body: |
@@ -63,8 +66,8 @@ jobs:
             ```
             ${{ steps.changelog.outputs.changelog }}
             ```
-          tag_name: "v${{ steps.version_check.outputs.version }}"
-          name: "Release v${{ steps.version_check.outputs.version }}"
+          tag_name: "v${{ env.version }}"
+          name: "Release v${{ env.version }}"
           draft: false
           prerelease: false
           token: ${{ secrets.GITHUB_TOKEN }}
