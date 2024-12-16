@@ -1,0 +1,73 @@
+name: Create Release on Version Commit
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch to monitor if needed
+
+permissions:
+  contents: write
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Git
+        run: |
+          git config --global --add safe.directory $GITHUB_WORKSPACE
+
+      - name: Get commit messages
+        id: commits
+        run: |
+          git log -1 --pretty=format:"%s%n%b" > commit_info.txt
+
+      - name: Check for version pattern
+        id: version_check
+        run: |
+          if grep -Eo 'version [0-9]+\.[0-9]+\.[0-9]+' commit_info.txt; then
+            echo "Found version in commit."
+            VERSION=$(grep -Eo 'version [0-9]+\.[0-9]+\.[0-9]+' commit_info.txt | head -1 | cut -d ' ' -f2)
+            echo "::set-output name=version::$VERSION"
+          else
+            echo "No version pattern found."
+            exit 1
+        shell: bash
+
+      - name: Get previous release tag
+        id: get_previous_tag
+        run: |
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          echo "::set-output name=previous_tag::$PREVIOUS_TAG"
+        shell: bash
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          if [ "${{ steps.get_previous_tag.outputs.previous_tag }}" != "" ]; then
+            git log ${{ steps.get_previous_tag.outputs.previous_tag }}..HEAD --oneline > changelog.txt
+          else
+            git log --oneline > changelog.txt
+          fi
+        shell: bash
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body: |
+            Changes since last release:
+            ```
+            ${{ steps.changelog.outputs.changelog }}
+            ```
+          tag_name: "v${{ steps.version_check.outputs.version }}"
+          name: "Release v${{ steps.version_check.outputs.version }}"
+          draft: false
+          prerelease: false
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generate_release_notes: true
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

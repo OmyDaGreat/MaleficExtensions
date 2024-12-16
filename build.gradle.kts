@@ -101,6 +101,11 @@ centralPortalPlus {
   publishingType = PublishingType.AUTOMATIC
 }
 
-tasks.dokkaHtml {
-  outputDirectory.set(layout.buildDirectory.dir("dokka"))
+tasks.apply {
+  dokkaHtml {
+    outputDirectory.set(layout.buildDirectory.dir("dokka"))
+  }
+  build {
+    dependsOn(dokkaHtml)
+  }
 }
