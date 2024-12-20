@@ -1,4 +1,4 @@
-package xyz.malefic.extensions.standard
+package xyz.malefic.compose.ext.standard
 
 /**
  * Extension function for `List<T?>` that allows getting an element at a specified index with a
@@ -10,5 +10,7 @@ package xyz.malefic.extensions.standard
  *   index is out of bounds.
  * @return The element at the specified index or the default value if not found.
  */
-inline operator fun <reified T> List<T?>.get(index: Int, default: T): T =
-  this.getOrNull(index) ?: default
+inline operator fun <reified T> List<T?>.get(
+    index: Int,
+    default: T,
+): T = this.getOrNull(index) ?: default

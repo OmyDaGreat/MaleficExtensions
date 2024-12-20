@@ -1,12 +1,12 @@
-package xyz.malefic.extensions.standard.file
+package xyz.malefic.compose.ext.standard.file
 
-import java.io.File
-import java.nio.file.Files
-import java.nio.file.Paths
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import xyz.malefic.extensions.standard.tree.TreeNode
+import xyz.malefic.compose.ext.standard.tree.TreeNode
+import java.io.File
+import java.nio.file.Files
+import java.nio.file.Paths
 
 /**
  * Asynchronously loads the content of the file and invokes the provided callback with the content.
@@ -14,9 +14,9 @@ import xyz.malefic.extensions.standard.tree.TreeNode
  * @param onContentLoaded A callback function that is invoked with the file content as a string.
  */
 fun File.loadFileContent(onContentLoaded: (String) -> Unit) =
-  CoroutineScope(Dispatchers.IO).launch {
-    onContentLoaded(Files.readString(Paths.get(this@loadFileContent.toURI())))
-  }
+    CoroutineScope(Dispatchers.IO).launch {
+        onContentLoaded(Files.readString(Paths.get(this@loadFileContent.toURI())))
+    }
 
 /**
  * Asynchronously saves the provided content to the file.
@@ -24,9 +24,9 @@ fun File.loadFileContent(onContentLoaded: (String) -> Unit) =
  * @param content The content to be written to the file.
  */
 fun File.saveFile(content: String) =
-  CoroutineScope(Dispatchers.IO).launch {
-    Files.writeString(Paths.get(this@saveFile.toURI()), content)
-  }
+    CoroutineScope(Dispatchers.IO).launch {
+        Files.writeString(Paths.get(this@saveFile.toURI()), content)
+    }
 
 /**
  * Recursively builds a file tree from a given file.
@@ -39,5 +39,4 @@ fun File.saveFile(content: String) =
  * @return The root node of the file tree, where each node contains a file and its children.
  * @receiver The root file to build the tree from.
  */
-fun File.buildFileTree(): TreeNode<File> =
-  TreeNode(this, listFiles()?.map { it.buildFileTree() } ?: emptyList())
+fun File.buildFileTree(): TreeNode<File> = TreeNode(this, listFiles()?.map { it.buildFileTree() } ?: emptyList())

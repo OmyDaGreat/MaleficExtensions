@@ -1,14 +1,10 @@
-package xyz.malefic.extensions.composables
+package xyz.malefic.compose.ext.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ripple.rememberRipple
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
@@ -17,36 +13,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
- * Extension function for Modifier to add a clickable ripple effect.
- *
- * @param onClick Lambda function to be invoked when the modifier is clicked.
- * @return A Modifier with a clickable ripple effect.
- */
-@Composable
-fun Modifier.clickableWithRipple(
-  enabled: Boolean = true,
-  onClickLabel: String? = null,
-  role: Role? = null,
-  onClick: () -> Unit,
-): Modifier =
-  this.clickable(
-    interactionSource = remember { MutableInteractionSource() },
-    indication = rememberRipple(),
-    enabled = enabled,
-    onClickLabel = onClickLabel,
-    role = role,
-    onClick = onClick,
-  )
-
-/**
  * Extension function for Modifier to conditionally show or hide a composable.
  *
  * @param condition Boolean value. If true, the Modifier is applied; otherwise, a Modifier with size
  *   0.dp is applied.
  * @return A Modifier that is either the original or one with size 0.dp based on the condition.
  */
-fun Modifier.showIf(condition: Boolean): Modifier =
-  this.modifyIfElse(condition, Modifier, Modifier.size(0.dp))
+fun Modifier.showIf(condition: Boolean): Modifier = this.modifyIfElse(condition, Modifier, Modifier.size(0.dp))
 
 /**
  * Extension function for Modifier to add a rounded background with padding.
@@ -57,11 +30,10 @@ fun Modifier.showIf(condition: Boolean): Modifier =
  * @return A Modifier with a rounded background and padding.
  */
 fun Modifier.roundedBackgroundWithPadding(
-  backgroundColor: Color,
-  cornerRadius: Dp,
-  padding: Dp,
-): Modifier =
-  this.background(backgroundColor, shape = RoundedCornerShape(cornerRadius)).padding(padding)
+    backgroundColor: Color,
+    cornerRadius: Dp,
+    padding: Dp,
+): Modifier = this.background(backgroundColor, shape = RoundedCornerShape(cornerRadius)).padding(padding)
 
 /**
  * Extension function for Modifier to animate the visibility of a composable.
@@ -70,8 +42,7 @@ fun Modifier.roundedBackgroundWithPadding(
  *   transparent.
  * @return A Modifier with the alpha value set based on the visibility.
  */
-fun Modifier.animateVisibility(isVisible: Boolean): Modifier =
-  this.alpha(1f.takeIf { isVisible } ?: 0f)
+fun Modifier.animateVisibility(isVisible: Boolean): Modifier = this.alpha(1f.takeIf { isVisible } ?: 0f)
 
 /**
  * Extension function for Modifier to conditionally append another Modifier.
@@ -81,8 +52,10 @@ fun Modifier.animateVisibility(isVisible: Boolean): Modifier =
  * @param modifier The Modifier to be appended if the condition is true.
  * @return A Modifier that is either the original or the provided modifier based on the condition.
  */
-fun Modifier.modifyIf(condition: Boolean, modifier: Modifier): Modifier =
-  this.modifyIfElse(condition, modifier, Modifier)
+fun Modifier.modifyIf(
+    condition: Boolean,
+    modifier: Modifier,
+): Modifier = this.modifyIfElse(condition, modifier, Modifier)
 
 /**
  * Extension function for Modifier to conditionally append one of two Modifiers.
@@ -95,9 +68,9 @@ fun Modifier.modifyIf(condition: Boolean, modifier: Modifier): Modifier =
  *   condition.
  */
 fun Modifier.modifyIfElse(
-  condition: Boolean,
-  modifier: Modifier,
-  alternateModifier: Modifier,
+    condition: Boolean,
+    modifier: Modifier,
+    alternateModifier: Modifier,
 ): Modifier = this.then(modifier.takeIf { condition } ?: alternateModifier)
 
 /**
@@ -109,10 +82,9 @@ fun Modifier.modifyIfElse(
  * @return A Modifier that is conditionally clickable.
  */
 fun Modifier.clickableIf(
-  condition: Boolean,
-  enabled: Boolean = true,
-  onClickLabel: String? = null,
-  role: Role? = null,
-  onClick: () -> Unit,
-): Modifier =
-  this.modifyIfElse(condition, Modifier.clickable(enabled, onClickLabel, role, onClick), Modifier)
+    condition: Boolean,
+    enabled: Boolean = true,
+    onClickLabel: String? = null,
+    role: Role? = null,
+    onClick: () -> Unit,
+): Modifier = this.modifyIfElse(condition, Modifier.clickable(enabled, onClickLabel, role, onClick), Modifier)
