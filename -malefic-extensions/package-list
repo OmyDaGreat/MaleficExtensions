@@ -1,43 +1,42 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
-$dokka.location:xyz.malefic.extensions.composables////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/index.html
-$dokka.location:xyz.malefic.extensions.composables//animateVisibility/androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/animate-visibility.html
-$dokka.location:xyz.malefic.extensions.composables//clickableIf/androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Boolean#kotlin.String?#androidx.compose.ui.semantics.Role?#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/clickable-if.html
-$dokka.location:xyz.malefic.extensions.composables//clickableWithRipple/androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.String?#androidx.compose.ui.semantics.Role?#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/clickable-with-ripple.html
-$dokka.location:xyz.malefic.extensions.composables//gridItems/androidx.compose.foundation.lazy.LazyListScope#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]#kotlin.Int#androidx.compose.ui.Modifier#androidx.compose.foundation.layout.Arrangement.Horizontal#kotlin.Function2[androidx.compose.foundation.layout.BoxScope,TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/grid-items.html
-$dokka.location:xyz.malefic.extensions.composables//modifyIf/androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.ui.Modifier/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/modify-if.html
-$dokka.location:xyz.malefic.extensions.composables//modifyIfElse/androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.ui.Modifier#androidx.compose.ui.Modifier/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/modify-if-else.html
-$dokka.location:xyz.malefic.extensions.composables//roundedBackgroundWithPadding/androidx.compose.ui.Modifier#androidx.compose.ui.graphics.Color#androidx.compose.ui.unit.Dp#androidx.compose.ui.unit.Dp/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/rounded-background-with-padding.html
-$dokka.location:xyz.malefic.extensions.composables//scroll/androidx.compose.foundation.lazy.LazyListState#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/scroll.html
-$dokka.location:xyz.malefic.extensions.composables//scrollToTop/androidx.compose.foundation.lazy.LazyListState#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/scroll-to-top.html
-$dokka.location:xyz.malefic.extensions.composables//showIf/androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.composables/show-if.html
-$dokka.location:xyz.malefic.extensions.precompose////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.precompose/index.html
-$dokka.location:xyz.malefic.extensions.precompose//gate/moe.tlaster.precompose.navigation.Navigator#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.precompose/gate.html
-$dokka.location:xyz.malefic.extensions.standard.file////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/index.html
-$dokka.location:xyz.malefic.extensions.standard.file//buildFileTree/java.io.File#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/build-file-tree.html
-$dokka.location:xyz.malefic.extensions.standard.file//loadFileContent/java.io.File#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/load-file-content.html
-$dokka.location:xyz.malefic.extensions.standard.file//saveFile/java.io.File#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.file/save-file.html
-$dokka.location:xyz.malefic.extensions.standard.inputstream////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.inputstream/index.html
-$dokka.location:xyz.malefic.extensions.standard.inputstream//grass/kotlin.Any#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.inputstream/grass.html
-$dokka.location:xyz.malefic.extensions.standard.string////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/index.html
-$dokka.location:xyz.malefic.extensions.standard.string//containsAny/kotlin.String#kotlin.Array[kotlin.String]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/contains-any.html
-$dokka.location:xyz.malefic.extensions.standard.string//either/kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/either.html
-$dokka.location:xyz.malefic.extensions.standard.string//fromHex/kotlin.String#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/from-hex.html
-$dokka.location:xyz.malefic.extensions.standard.string//toHex/kotlin.String#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.string/to-hex.html
-$dokka.location:xyz.malefic.extensions.standard.tree////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/index.html
-$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode///PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/index.html
-$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/TreeNode/#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.List[xyz.malefic.extensions.standard.tree.TreeNode[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/-tree-node.html
-$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/children/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/children.html
-$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/filter/#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Boolean]/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/filter.html
-$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/flattenTree/#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/flatten-tree.html
-$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/toString/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/to-string.html
-$dokka.location:xyz.malefic.extensions.standard.tree/TreeNode/value/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard.tree/-tree-node/value.html
-$dokka.location:xyz.malefic.extensions.standard////PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard/index.html
-$dokka.location:xyz.malefic.extensions.standard//get/kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])?]#kotlin.Int#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-malefic-extensions/xyz.malefic.extensions.standard/get.html
-xyz.malefic.extensions.composables
-xyz.malefic.extensions.precompose
-xyz.malefic.extensions.standard
-xyz.malefic.extensions.standard.file
-xyz.malefic.extensions.standard.inputstream
-xyz.malefic.extensions.standard.string
-xyz.malefic.extensions.standard.tree
+$dokka.location:xyz.malefic.compose.ext.composables////PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/index.html
+$dokka.location:xyz.malefic.compose.ext.composables//animateVisibility/androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/animate-visibility.html
+$dokka.location:xyz.malefic.compose.ext.composables//clickableIf/androidx.compose.ui.Modifier#kotlin.Boolean#kotlin.Boolean#kotlin.String?#androidx.compose.ui.semantics.Role?#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/clickable-if.html
+$dokka.location:xyz.malefic.compose.ext.composables//gridItems/androidx.compose.foundation.lazy.LazyListScope#kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])]#kotlin.Int#androidx.compose.ui.Modifier#androidx.compose.foundation.layout.Arrangement.Horizontal#kotlin.Function2[androidx.compose.foundation.layout.BoxScope,TypeParam(bounds=[kotlin.Any?]),kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/grid-items.html
+$dokka.location:xyz.malefic.compose.ext.composables//modifyIf/androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.ui.Modifier/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/modify-if.html
+$dokka.location:xyz.malefic.compose.ext.composables//modifyIfElse/androidx.compose.ui.Modifier#kotlin.Boolean#androidx.compose.ui.Modifier#androidx.compose.ui.Modifier/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/modify-if-else.html
+$dokka.location:xyz.malefic.compose.ext.composables//roundedBackgroundWithPadding/androidx.compose.ui.Modifier#androidx.compose.ui.graphics.Color#androidx.compose.ui.unit.Dp#androidx.compose.ui.unit.Dp/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/rounded-background-with-padding.html
+$dokka.location:xyz.malefic.compose.ext.composables//scroll/androidx.compose.foundation.lazy.LazyListState#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/scroll.html
+$dokka.location:xyz.malefic.compose.ext.composables//scrollToTop/androidx.compose.foundation.lazy.LazyListState#/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/scroll-to-top.html
+$dokka.location:xyz.malefic.compose.ext.composables//showIf/androidx.compose.ui.Modifier#kotlin.Boolean/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.composables/show-if.html
+$dokka.location:xyz.malefic.compose.ext.precompose////PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.precompose/index.html
+$dokka.location:xyz.malefic.compose.ext.precompose//gate/moe.tlaster.precompose.navigation.Navigator#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.precompose/gate.html
+$dokka.location:xyz.malefic.compose.ext.standard.file////PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.file/index.html
+$dokka.location:xyz.malefic.compose.ext.standard.file//buildFileTree/java.io.File#/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.file/build-file-tree.html
+$dokka.location:xyz.malefic.compose.ext.standard.file//loadFileContent/java.io.File#kotlin.Function1[kotlin.String,kotlin.Unit]/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.file/load-file-content.html
+$dokka.location:xyz.malefic.compose.ext.standard.file//saveFile/java.io.File#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.file/save-file.html
+$dokka.location:xyz.malefic.compose.ext.standard.inputstream////PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.inputstream/index.html
+$dokka.location:xyz.malefic.compose.ext.standard.inputstream//grass/kotlin.Any#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.inputstream/grass.html
+$dokka.location:xyz.malefic.compose.ext.standard.string////PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.string/index.html
+$dokka.location:xyz.malefic.compose.ext.standard.string//containsAny/kotlin.String#kotlin.Array[kotlin.String]/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.string/contains-any.html
+$dokka.location:xyz.malefic.compose.ext.standard.string//either/kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.string/either.html
+$dokka.location:xyz.malefic.compose.ext.standard.string//fromHex/kotlin.String#/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.string/from-hex.html
+$dokka.location:xyz.malefic.compose.ext.standard.string//toHex/kotlin.String#/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.string/to-hex.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree////PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/index.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree/TreeNode///PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/-tree-node/index.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree/TreeNode/TreeNode/#TypeParam(bounds=[kotlin.Any?])#kotlin.collections.List[xyz.malefic.compose.ext.standard.tree.TreeNode[TypeParam(bounds=[kotlin.Any?])]]/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/-tree-node/-tree-node.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree/TreeNode/children/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/-tree-node/children.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree/TreeNode/filter/#kotlin.Function1[TypeParam(bounds=[kotlin.Any?]),kotlin.Boolean]/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/-tree-node/filter.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree/TreeNode/flattenTree/#kotlin.Int/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/-tree-node/flatten-tree.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree/TreeNode/toString/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/-tree-node/to-string.html
+$dokka.location:xyz.malefic.compose.ext.standard.tree/TreeNode/value/#/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard.tree/-tree-node/value.html
+$dokka.location:xyz.malefic.compose.ext.standard////PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard/index.html
+$dokka.location:xyz.malefic.compose.ext.standard//get/kotlin.collections.List[TypeParam(bounds=[kotlin.Any?])?]#kotlin.Int#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/-malefic-extensions/xyz.malefic.compose.ext.standard/get.html
+xyz.malefic.compose.ext.composables
+xyz.malefic.compose.ext.precompose
+xyz.malefic.compose.ext.standard
+xyz.malefic.compose.ext.standard.file
+xyz.malefic.compose.ext.standard.inputstream
+xyz.malefic.compose.ext.standard.string
+xyz.malefic.compose.ext.standard.tree
