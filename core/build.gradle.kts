@@ -99,3 +99,9 @@ centralPortalPlus {
     password = System.getenv("centralPortalPassword") ?: ""
     publishingType = PublishingType.AUTOMATIC
 }
+
+dokka {
+    dokkaSourceSets.configureEach {
+        includes.from("CoreModule.md")
+    }
+}

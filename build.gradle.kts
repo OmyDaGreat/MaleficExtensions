@@ -9,29 +9,24 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.kotlinter)
-    id("dokka-convention")
 }
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    dokka(project(":core:"))
-    dokka(project(":compose:"))
-}
-
 group = g
 version = v
 
 subprojects {
-    tasks.apply {
-        register("formatAndLintKotlin") {
-            group = "formatting"
-            description = "Formats and lints Kotlin using Kotlinter"
-            dependsOn(named("formatKotlin"))
-            dependsOn(named("lintKotlin"))
+    if (name != "docs") {
+        tasks.apply {
+            register("formatAndLintKotlin") {
+                group = "formatting"
+                description = "Formats and lints Kotlin using Kotlinter"
+                dependsOn(named("formatKotlin"))
+                dependsOn(named("lintKotlin"))
+            }
         }
     }
 }
@@ -50,7 +45,7 @@ tasks.apply {
         dependsOn(":compose:publishToCentralPortal")
     }
     build {
-        dependsOn(dokkaGenerate)
+        dependsOn(":docs:dokkaGenerate")
         dependsOn(":core:build")
         dependsOn(":compose:build")
         dependsOn(named("formatAndLintKotlin"))

@@ -1,0 +1,1 @@
+Welcome to the docs for MaleficExtensions, a multi-module Kotlin library for everything extension functions!
