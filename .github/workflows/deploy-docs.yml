@@ -32,11 +32,11 @@ jobs:
 
       - name: Build and Generate Docs
         run: |
-          ./gradlew :docs:dokkaGenerate
+          ./gradlew dokkaHtmlMultiModule
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/build/dokka
+          publish_dir: build/dokka/htmlMultiModule
           cname: ext.malefic.xyz

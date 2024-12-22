@@ -5,6 +5,7 @@ compose = "1.8.0-alpha01"
 kotlin = "2.0.21"
 kotlinter = "5.0.1"
 kotlinx = "1.10.1"
+dokka = "2.0.0"
 
 [libraries]
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
@@ -19,3 +20,4 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 compose-kotlin = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

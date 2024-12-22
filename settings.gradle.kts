@@ -10,4 +10,3 @@ pluginManagement {
 rootProject.name = "MaleficExtensions"
 include("core")
 include("compose")
-include("docs")

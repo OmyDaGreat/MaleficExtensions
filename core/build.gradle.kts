@@ -13,7 +13,6 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 plugins {
     alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.central)
-    id("dokka-convention")
     `maven-publish`
     signing
 }
@@ -97,10 +96,4 @@ centralPortalPlus {
     username = System.getenv("centralPortalUsername") ?: ""
     password = System.getenv("centralPortalPassword") ?: ""
     publishingType = PublishingType.AUTOMATIC
-}
-
-dokka {
-    dokkaSourceSets.configureEach {
-        includes.from("CoreModule.md")
-    }
 }

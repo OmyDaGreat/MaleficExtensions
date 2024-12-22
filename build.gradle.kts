@@ -11,8 +11,9 @@ val desc: String by project
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
-    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.kotlinter)
+    alias(libs.plugins.dokka)
 }
 
 repositories {
@@ -50,4 +51,11 @@ tasks.apply {
         dependsOn(":compose:publishToCentralPortal")
         dependsOn(named("ktFormatAndLint"))
     }
+    named("ktFormatAndLint") {
+        dependsOn(installKotlinterPrePushHook)
+    }
+}
+
+subprojects {
+    apply(plugin = "org.jetbrains.dokka")
 }
