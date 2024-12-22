@@ -1,4 +1,4 @@
-package xyz.malefic.compose.ext.composables
+package xyz.malefic.ext.compose
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

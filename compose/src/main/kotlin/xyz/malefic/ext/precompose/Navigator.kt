@@ -1,4 +1,4 @@
-package xyz.malefic.compose.ext.precompose
+package xyz.malefic.ext.precompose
 
 import moe.tlaster.precompose.navigation.Navigator
 

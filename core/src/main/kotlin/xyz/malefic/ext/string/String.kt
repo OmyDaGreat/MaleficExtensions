@@ -1,4 +1,4 @@
-package xyz.malefic.compose.ext.standard.string
+package xyz.malefic.ext.string
 
 /**
  * Extension function for the String class that toggles the string value between the provided

@@ -1,9 +1,9 @@
-package xyz.malefic.compose.ext.standard.file
+package xyz.malefic.ext.file
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import xyz.malefic.compose.ext.standard.tree.TreeNode
+import xyz.malefic.ext.tree.TreeNode
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Paths

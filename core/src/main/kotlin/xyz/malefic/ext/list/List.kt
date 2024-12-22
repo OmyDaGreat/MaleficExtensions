@@ -1,4 +1,4 @@
-package xyz.malefic.compose.ext.standard
+package xyz.malefic.ext.list
 
 /**
  * Extension function for `List<T?>` that allows getting an element at a specified index with a

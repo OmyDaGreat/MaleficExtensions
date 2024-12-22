@@ -1,4 +1,4 @@
-package xyz.malefic.compose.ext.standard.tree
+package xyz.malefic.ext.tree
 
 /**
  * Data class representing a tree node.

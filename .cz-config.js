@@ -25,7 +25,7 @@ module.exports = {
     {value: 'revert', name: 'revert:   Revert to a prior commit'},
   ],
 
-  scopes: [{name: 'composables'}, {name: 'precompose'}, {name: 'standard'}],
+  scopes: [{name: 'compose'}, {name: 'precompose'}, {name: 'standard'}],
 
   usePreparedCommit: false, // to re-use commit from ./.git/COMMIT_EDITMSG
   allowTicketNumber: false,
@@ -42,11 +42,7 @@ module.exports = {
       {name: 'cz'},
       {name: 'readme'},
     ],
-    version: [
-      {name: '1.2.0'},
-      {name: '1.2.1'},
-      {name: '1.2.2'},
-    ]
+    version: []
   },
   // override the messages, defaults are as follows
   messages: {

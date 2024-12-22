@@ -1,4 +1,4 @@
-package xyz.malefic.compose.ext.standard.inputstream
+package xyz.malefic.ext.inputstream
 
 import java.io.InputStream
 

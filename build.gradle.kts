@@ -1,124 +1,58 @@
-import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
-
-val user = "MaleficCompose"
-val repo = "MaleficExtensions"
-val g = "xyz.malefic.compose"
-val artifact = "ext"
-val v = "1.2.0"
-val desc = "A Compose Desktop library containing common extension methods"
+val user: String by project
+val repo: String by project
+val g: String by project
+val artifact: String by project
+val v: String by project
+val desc: String by project
 
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
-    alias(libs.plugins.compose.kotlin)
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.spotless)
-    alias(libs.plugins.compose)
-    alias(libs.plugins.central)
-    alias(libs.plugins.dokka)
-    `maven-publish`
-    signing
+    alias(libs.plugins.kotlinter)
+    id("dokka-convention")
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    dokka(project(":core:"))
+    dokka(project(":compose:"))
 }
 
 group = g
 version = v
 
-repositories {
-    mavenCentral()
-    maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
-    google()
-}
-
-dependencies {
-    implementation(compose.desktop.common)
-    implementation(compose.animation)
-    implementation(compose.foundation)
-    implementation(libs.precompose)
-}
-
-spotless {
-    kotlin {
-        ktlint().customRuleSets(
-            listOf(
-                "io.nlopez.compose.rules:ktlint:0.4.16",
-            ),
-        )
-    }
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-    withJavadocJar()
-    withSourcesJar()
-}
-
-kotlin {
-    jvmToolchain {
-        this.languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = g
-            artifactId = artifact
-            version = v
-
-            from(components["java"])
-
-            pom {
-                name.set(repo)
-                description.set(desc)
-                url.set("https://github.com/$user/$repo")
-                developers {
-                    developer {
-                        name.set("Om Gupta")
-                        email.set("ogupta4242@gmail.com")
-                    }
-                }
-                licenses {
-                    license {
-                        name.set("MIT License")
-                        url.set("https://opensource.org/licenses/MIT")
-                    }
-                }
-                scm {
-                    connection.set("scm:git:git://github.com/$user/$repo.git")
-                    developerConnection.set("scm:git:ssh://github.com/$user/$repo.git")
-                    url.set("https://github.com/$user/$repo")
-                }
-            }
-        }
-        repositories {
-            maven {
-                url = localMavenRepo
-            }
+subprojects {
+    tasks.apply {
+        register("formatAndLintKotlin") {
+            group = "formatting"
+            description = "Formats and lints Kotlin using Kotlinter"
+            dependsOn(named("formatKotlin"))
+            dependsOn(named("lintKotlin"))
         }
     }
-}
-
-signing {
-    useGpgCmd()
-    sign(publishing.publications)
-}
-
-centralPortalPlus {
-    url = localMavenRepo
-    username = System.getenv("centralPortalUsername") ?: ""
-    password = System.getenv("centralPortalPassword") ?: ""
-    publishingType = PublishingType.AUTOMATIC
 }
 
 tasks.apply {
+    register("formatAndLintKotlin") {
+        group = "formatting"
+        description = "Formats and lints Kotlin using Kotlinter"
+        dependsOn(":core:formatAndLintKotlin")
+        dependsOn(":compose:formatAndLintKotlin")
+    }
+    register("publishAllToCentralPortal") {
+        group = "publishing"
+        description = "Publish all of the subprojects to central portal"
+        dependsOn(":core:publishToCentralPortal")
+        dependsOn(":compose:publishToCentralPortal")
+    }
     build {
         dependsOn(dokkaGenerate)
-    }
-}
-
-dokka {
-    dokkaPublications.html {
-        outputDirectory.set(layout.buildDirectory.dir("dokka"))
+        dependsOn(":core:build")
+        dependsOn(":compose:build")
+        dependsOn(named("formatAndLintKotlin"))
     }
 }
