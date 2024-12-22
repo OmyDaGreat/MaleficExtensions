@@ -11,7 +11,7 @@ val desc: String by project
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
-    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlinter)
 }
 
@@ -49,18 +49,5 @@ tasks.apply {
         dependsOn(":core:publishToCentralPortal")
         dependsOn(":compose:publishToCentralPortal")
         dependsOn(named("ktFormatAndLint"))
-    }
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
-    withJavadocJar()
-    withSourcesJar()
-}
-
-kotlin {
-    jvmToolchain {
-        this.languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
