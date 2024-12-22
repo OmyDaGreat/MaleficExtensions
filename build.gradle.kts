@@ -51,11 +51,15 @@ tasks.apply {
         dependsOn(":compose:publishToCentralPortal")
         dependsOn(named("ktFormatAndLint"))
     }
-    named("ktFormatAndLint") {
-        dependsOn(installKotlinterPrePushHook)
-    }
 }
 
 subprojects {
+    apply(plugin = "org.jetbrains.kotlin.jvm")
     apply(plugin = "org.jetbrains.dokka")
+    dependencies {
+        testImplementation(kotlin("test"))
+    }
+    tasks.test {
+        useJUnitPlatform()
+    }
 }

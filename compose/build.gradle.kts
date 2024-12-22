@@ -12,9 +12,8 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
     alias(libs.plugins.compose.kotlin)
-    alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.central)
     alias(libs.plugins.compose)
+    alias(libs.plugins.central)
     `maven-publish`
     signing
 }

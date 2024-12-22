@@ -11,7 +11,6 @@ val desc: String by project
 val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
-    alias(libs.plugins.kotlin.jvm)
     alias(libs.plugins.central)
     `maven-publish`
     signing
@@ -39,11 +38,6 @@ kotlin {
 
 dependencies {
     implementation(libs.kotlinx.coroutines)
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
 }
 
 publishing {
