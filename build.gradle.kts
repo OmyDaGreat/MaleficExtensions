@@ -1,3 +1,6 @@
+import org.jmailen.gradle.kotlinter.tasks.FormatTask
+import org.jmailen.gradle.kotlinter.tasks.LintTask
+
 val user: String by project
 val repo: String by project
 val g: String by project
@@ -9,6 +12,7 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
     alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlinter)
 }
 
 repositories {
@@ -18,37 +22,33 @@ repositories {
 group = g
 version = v
 
-subprojects {
-    if (name != "docs") {
-        tasks.apply {
-            register("formatAndLintKotlin") {
-                group = "formatting"
-                description = "Formats and lints Kotlin using Kotlinter"
-                dependsOn(named("formatKotlin"))
-                dependsOn(named("lintKotlin"))
-            }
-        }
-    }
-}
-
 tasks.apply {
-    register("formatAndLintKotlin") {
-        group = "formatting"
-        description = "Formats and lints Kotlin using Kotlinter"
-        dependsOn(":core:formatAndLintKotlin")
-        dependsOn(":compose:formatAndLintKotlin")
+    register<LintTask>("ktLint") {
+        group = "kotlint"
+        source(files("core/src", "compose/src"))
+        reports.set(
+            mapOf(
+                "plain" to file("build/lint-report.txt"),
+                "json" to file("build/lint-report.json"),
+            ),
+        )
+    }
+    register<FormatTask>("ktFormat") {
+        group = "kotlint"
+        source(files("core/src", "compose/src"))
+        report.set(file("build/format-report.txt"))
+    }
+    register("ktFormatAndLint") {
+        group = "kotlint"
+        dependsOn(named("ktFormat"))
+        dependsOn(named("ktLint"))
     }
     register("publishAllToCentralPortal") {
         group = "publishing"
         description = "Publish all of the subprojects to central portal"
         dependsOn(":core:publishToCentralPortal")
         dependsOn(":compose:publishToCentralPortal")
-    }
-    build {
-        dependsOn(":docs:dokkaGenerate")
-        dependsOn(":core:build")
-        dependsOn(":compose:build")
-        dependsOn(named("formatAndLintKotlin"))
+        dependsOn(named("ktFormatAndLint"))
     }
 }
 

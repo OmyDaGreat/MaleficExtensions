@@ -41,6 +41,7 @@ module.exports = {
       {name: 'dokka'},
       {name: 'cz'},
       {name: 'readme'},
+      {name: 'kotlinter'},
     ],
     version: []
   },

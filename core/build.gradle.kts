@@ -12,7 +12,6 @@ val localMavenRepo = uri(layout.buildDirectory.dir("repo").get())
 
 plugins {
     alias(libs.plugins.kotlin.jvm)
-    alias(libs.plugins.kotlinter)
     alias(libs.plugins.central)
     id("dokka-convention")
     `maven-publish`
