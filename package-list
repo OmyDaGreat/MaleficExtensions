@@ -5,8 +5,10 @@ module:compose
 xyz.malefic.ext.compose
 xyz.malefic.ext.precompose
 module:core
+xyz.malefic.ext.bool
 xyz.malefic.ext.file
-xyz.malefic.ext.inputstream
 xyz.malefic.ext.list
+xyz.malefic.ext.num
+xyz.malefic.ext.stream
 xyz.malefic.ext.string
 xyz.malefic.ext.tree
