@@ -5,6 +5,7 @@ module:compose
 xyz.malefic.ext.compose
 xyz.malefic.ext.precompose
 module:core
+xyz.malefic.ext.any
 xyz.malefic.ext.bool
 xyz.malefic.ext.file
 xyz.malefic.ext.list
