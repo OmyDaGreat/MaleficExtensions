@@ -17,18 +17,6 @@ fun String.either(
 ) = if (this == first) second else first
 
 /**
- * Returns a specified string based on the nullability of the receiver string.
- *
- * @param ifNotNull The string to return if the receiver is null.
- * @param ifNull The string to return if the receiver is not null.
- * @return `ifNotNull` if the receiver is null, otherwise `ifNull`.
- */
-fun String?.ifNull(
-    ifNotNull: String,
-    ifNull: String,
-) = if (this == null) ifNotNull else ifNull
-
-/**
  * Extension function for the String class that checks if the string contains any of the substrings
  * from a given list.
  *

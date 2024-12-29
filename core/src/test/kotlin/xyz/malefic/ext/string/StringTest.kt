@@ -1,9 +1,43 @@
 package xyz.malefic.ext.string
 
+import xyz.malefic.ext.any.resolveNull
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class StringTest {
+    @Test
+    fun non_null_string_returns_if_null_parameter() {
+        val testString = "test"
+        val ifNotNull = "not null result"
+        val ifNull = "null result"
+
+        val result = testString.resolveNull(ifNotNull, ifNull)
+
+        assertEquals(ifNotNull, result)
+    }
+
+    @Test
+    fun null_string_returns_if_not_null_parameter() {
+        val testString: String? = null
+        val ifNotNull = "not null result"
+        val ifNull = "null result"
+
+        val result = testString.resolveNull(ifNotNull, ifNull)
+
+        assertEquals(ifNull, result)
+    }
+
+    @Test
+    fun empty_string_returns_if_null_parameter() {
+        val testString = ""
+        val ifNotNull = "not null result"
+        val ifNull = "null result"
+
+        val result = testString.resolveNull(ifNotNull, ifNull)
+
+        assertEquals(ifNotNull, result)
+    }
+
     @Test
     fun convertsEmptyStringToTitleCase() {
         assertEquals("", "".titlecase())
