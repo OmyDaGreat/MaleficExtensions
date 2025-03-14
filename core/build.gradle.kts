@@ -87,7 +87,6 @@ signing {
 
 centralPortalPlus {
     url = localMavenRepo
-    username = System.getenv("centralPortalUsername") ?: ""
-    password = System.getenv("centralPortalPassword") ?: ""
+    tokenXml = uri(rootProject.layout.projectDirectory.file("user_token.xml"))
     publishingType = PublishingType.AUTOMATIC
 }

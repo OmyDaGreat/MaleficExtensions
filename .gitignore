@@ -45,3 +45,6 @@ bin/
 .DS_Store
 .lastDeploymentsId
 .qodo
+
+### Publishing ###
+user_token.xml
