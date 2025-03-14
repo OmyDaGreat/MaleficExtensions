@@ -1,0 +1,38 @@
+types:
+  - feat: A new feature
+  - version: A new version in maven central
+  - fix: A bug fix
+  - docs: Documentation only changes
+  - style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+  - refactor: A code change that neither fixes a bug nor adds a feature
+  - perf: A code change that improves performance
+  - test: Adding missing tests
+  - chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+  - WIP: Work in progress
+  - revert: Revert to a prior commit
+
+scopes:
+  - compose
+  - precompose
+  - standard
+  - github
+  - gradle
+  - dokka
+  - cz
+  - readme
+  - kotlinter
+
+options:
+  allowCustomScopes: true
+  allowEmptyScopes: true
+  issuePrefix: "ISSUES CLOSED:"
+  changesPrefix: "BREAKING CHANGE:"
+  remindToStageChanges: true
+  allowBreakingChanges:
+    - feat
+    - fix
+    - refactor
+  allowIssues:
+    - feat
+    - fix
+    - docs
