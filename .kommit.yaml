@@ -14,8 +14,8 @@ types:
 scopes:
   - precompose
   - kotlinter
-  - standard
   - compose
+  - core
   - publish
   - github
   - gradle
