@@ -8,6 +8,7 @@ module:core
 xyz.malefic.ext.any
 xyz.malefic.ext.bool
 xyz.malefic.ext.file
+xyz.malefic.ext.func
 xyz.malefic.ext.list
 xyz.malefic.ext.num
 xyz.malefic.ext.stream
