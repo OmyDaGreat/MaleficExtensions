@@ -48,3 +48,5 @@ bin/
 
 ### Publishing ###
 user_token.xml
+
+.idea/
