@@ -1,7 +1,7 @@
 package xyz.malefic.ext.list
 
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
 class ListTest {
     @Test
