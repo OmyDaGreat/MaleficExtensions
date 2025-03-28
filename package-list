@@ -2,7 +2,9 @@ $dokka.format:html-v1
 $dokka.linkExtension:html
 
 module:compose
-xyz.malefic.ext.compose
+xyz.malefic.ext.application
+xyz.malefic.ext.lazy
+xyz.malefic.ext.modifier
 xyz.malefic.ext.precompose
 module:core
 xyz.malefic.ext.any
