@@ -90,3 +90,7 @@ centralPortalPlus {
     tokenXml = uri(rootProject.layout.projectDirectory.file("user_token.xml"))
     publishingType = PublishingType.AUTOMATIC
 }
+
+tasks.test {
+    useJUnitPlatform()
+}

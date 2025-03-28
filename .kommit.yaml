@@ -12,16 +12,16 @@ types:
   - revert: Revert to a prior commit
 
 scopes:
-  - precompose
-  - kotlinter
-  - compose
-  - core
-  - publish
-  - github
-  - gradle
-  - readme
-  - dokka
-  - cz
+  all:
+    - compopse
+    - core
+    - kotlinter
+    - publish
+    - github
+    - gradle
+    - readme
+    - dokka
+    - cz
 
 options:
   allowCustomScopes: true
