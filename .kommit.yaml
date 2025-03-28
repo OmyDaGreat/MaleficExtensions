@@ -13,8 +13,9 @@ types:
 
 scopes:
   all:
-    - compopse
+    - compose
     - core
+  chore:
     - kotlinter
     - publish
     - github

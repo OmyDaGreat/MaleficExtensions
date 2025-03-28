@@ -45,11 +45,8 @@ dependencies {
     implementation(libs.compose.animation)
     implementation(libs.compose.foundation)
     implementation(libs.precompose)
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
+    testImplementation(compose.desktop.currentOs)
+    testImplementation(compose.desktop.uiTestJUnit4)
 }
 
 publishing {

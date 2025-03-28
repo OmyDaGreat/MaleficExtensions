@@ -1,4 +1,4 @@
-package xyz.malefic.ext.compose
+package xyz.malefic.ext.lazy
 
 import androidx.compose.foundation.lazy.LazyListState
 
