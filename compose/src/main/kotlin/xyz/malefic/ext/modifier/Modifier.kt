@@ -88,3 +88,27 @@ fun Modifier.clickableIf(
     role: Role? = null,
     onClick: () -> Unit,
 ): Modifier = this.modifyIfElse(condition, Modifier.clickable(enabled, onClickLabel, role, onClick), Modifier)
+
+/**
+ * Operator function to combine two Modifiers using the `then` method.
+ *
+ * @param other The Modifier to be combined with the current Modifier.
+ * @return A Modifier that is the result of combining the current Modifier with the provided Modifier.
+ */
+operator fun Modifier.plus(other: Modifier): Modifier = this.then(other)
+
+/**
+ * Operator function to apply a block of code to the current Modifier.
+ *
+ * @param block A lambda function with a receiver of type Modifier.
+ * @return A Modifier that is the result of applying the block to the current Modifier.
+ */
+operator fun Modifier.invoke(block: Modifier.() -> Unit): Modifier = this.apply(block)
+
+/**
+ * Operator function to apply a block of code to the current Modifier and return a new Modifier.
+ *
+ * @param block A lambda function with a receiver of type Modifier that returns a Modifier.
+ * @return A Modifier that is the result of applying the block to the current Modifier.
+ */
+operator fun Modifier.invoke(block: Modifier.() -> Modifier): Modifier = this.then(block())
