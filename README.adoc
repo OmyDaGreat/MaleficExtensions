@@ -1,0 +1,123 @@
+= Malefic Extensions
+:toc:
+:toc-placement: preamble
+:toclevels: 3
+:source-highlighter: highlight.js
+
+A collection of Kotlin extensions to enhance productivity and simplify common tasks.
+
+== Overview
+
+Malefic Extensions is a library that provides a set of utility extensions for Kotlin projects. It is divided into two main packages:
+
+* *Core*: Fundamental extensions for basic Kotlin types and operations
+* *Compose*: Extensions specifically designed for Jetpack Compose UI development
+
+== Installation
+
+[source,kotlin]
+----
+// For core extensions
+implementation("xyz.malefic:ext-core:$version")
+
+// For compose extensions
+implementation("xyz.malefic:ext-compose:$version")
+----
+
+== Core Package
+
+The core package provides extensions for fundamental Kotlin types and operations, organized into the following categories:
+
+=== Any Extensions
+Extensions for the `Any` type.
+
+=== Boolean Handling
+Utilities for working with boolean values.
+
+=== Function Utilities
+* *Cache*: Function memoization and caching utilities
+* *Composition*: Function composition utilities
+* *Operator*: Operator overloads for functions
+* *Safe*: Safe function execution utilities
+
+=== File Extensions
+Utilities for working with files, including building file trees.
+
+=== Numeric Utilities
+* *Infix*: Infix operators for numeric operations
+* *Math*: Mathematical functions (factorial, triangular numbers, prime checking, GCD)
+
+=== List Extensions
+Utilities for working with lists.
+
+=== String Extensions
+String manipulation and checking utilities.
+
+=== Tree Data Structure
+Tree node implementation and traversal utilities.
+
+=== Tuple Data Structures
+Extended tuple implementations (Triple, Quadruple, Quintuple, etc. up to Decuple).
+
+== Compose Package
+
+The compose package provides extensions for Jetbrains Compose UI development, focusing on:
+
+=== Application Components
+* *Tray*: Utilities for creating and configuring system tray icons
+* *Item*: Utilities for creating menu items with various properties
+
+=== Modifier Extensions
+Extensions for the Compose `Modifier` class:
+
+* Conditional visibility (`showIf`, `animateVisibility`)
+* Styling utilities (`roundedBackgroundWithPadding`)
+* Conditional modifications (`modifyIf`, `modifyIfElse`, `clickableIf`)
+* Operator overloads for combining modifiers
+
+== Examples
+
+=== Core Examples
+
+[source,kotlin]
+----
+// Function composition
+val addOne = { x: Int -> x + 1 }
+val multiplyByTwo = { x: Int -> x * 2 }
+val addOneThenMultiplyByTwo = addOne andThen multiplyByTwo
+val result = addOneThenMultiplyByTwo(3) // Returns 8
+
+// Factorial calculation
+val factorial = 5.factorial() // Returns 120
+
+// String extensions
+val containsAny = "Hello World".containsAny("Hello", "Goodbye") // Returns true
+----
+
+=== Compose Examples
+
+[source,kotlin]
+----
+// Creating a tray icon
+ApplicationScope.tray {
+    icon = painterResource("icon.png")
+    tooltip = "My Application"
+    onAction = { println("Tray clicked") }
+    menu {
+        Item("Settings") { openSettings() }
+        Item("Exit") { exitApplication() }
+    }
+}
+
+// Using modifier extensions
+Box(
+    modifier = Modifier
+        .showIf(isVisible)
+        .roundedBackgroundWithPadding(Color.Gray, 8.dp, 16.dp)
+        .clickableIf(isEnabled) { handleClick() }
+)
+----
+
+== License
+
+This project is licensed under the MIT License - see the link:LICENSE[LICENSE] file for details.
