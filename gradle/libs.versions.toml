@@ -21,3 +21,10 @@ compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 compose-kotlin = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+
+[bundles]
+compose = [
+    "compose-animation",
+    "compose-foundation",
+    "compose-desktop"
+]

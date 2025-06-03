@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
@@ -19,7 +20,7 @@ import androidx.compose.ui.unit.dp
  *   0.dp is applied.
  * @return A Modifier that is either the original or one with size 0.dp based on the condition.
  */
-fun Modifier.showIf(condition: Boolean): Modifier = this.modifyIfElse(condition, Modifier, Modifier.size(0.dp))
+fun Modifier.showIf(condition: Boolean) = this.modifyIfElse(condition, Modifier, Modifier.size(0.dp))
 
 /**
  * Extension function for Modifier to add a rounded background with padding.
@@ -33,7 +34,7 @@ fun Modifier.roundedBackgroundWithPadding(
     backgroundColor: Color,
     cornerRadius: Dp,
     padding: Dp,
-): Modifier = this.background(backgroundColor, shape = RoundedCornerShape(cornerRadius)).padding(padding)
+) = this.background(backgroundColor, shape = RoundedCornerShape(cornerRadius)).padding(padding)
 
 /**
  * Extension function for Modifier to animate the visibility of a composable.
@@ -42,7 +43,7 @@ fun Modifier.roundedBackgroundWithPadding(
  *   transparent.
  * @return A Modifier with the alpha value set based on the visibility.
  */
-fun Modifier.animateVisibility(isVisible: Boolean): Modifier = this.alpha(1f.takeIf { isVisible } ?: 0f)
+fun Modifier.animateVisibility(isVisible: Boolean) = this.alpha(1f.takeIf { isVisible } ?: 0f)
 
 /**
  * Extension function for Modifier to conditionally append another Modifier.
@@ -55,7 +56,7 @@ fun Modifier.animateVisibility(isVisible: Boolean): Modifier = this.alpha(1f.tak
 fun Modifier.modifyIf(
     condition: Boolean,
     modifier: Modifier,
-): Modifier = this.modifyIfElse(condition, modifier, Modifier)
+) = this.modifyIfElse(condition, modifier, Modifier)
 
 /**
  * Extension function for Modifier to conditionally append one of two Modifiers.
@@ -71,7 +72,7 @@ fun Modifier.modifyIfElse(
     condition: Boolean,
     modifier: Modifier,
     alternateModifier: Modifier,
-): Modifier = this.then(modifier.takeIf { condition } ?: alternateModifier)
+) = this.then(modifier.takeIf { condition } ?: alternateModifier)
 
 /**
  * Extension function for Modifier to make the composable clickable based on a condition.
@@ -87,7 +88,7 @@ fun Modifier.clickableIf(
     onClickLabel: String? = null,
     role: Role? = null,
     onClick: () -> Unit,
-): Modifier = this.modifyIfElse(condition, Modifier.clickable(enabled, onClickLabel, role, onClick), Modifier)
+) = this.modifyIfElse(condition, Modifier.clickable(enabled, onClickLabel, role, onClick), Modifier)
 
 /**
  * Operator function to combine two Modifiers using the `then` method.
@@ -95,15 +96,7 @@ fun Modifier.clickableIf(
  * @param other The Modifier to be combined with the current Modifier.
  * @return A Modifier that is the result of combining the current Modifier with the provided Modifier.
  */
-operator fun Modifier.plus(other: Modifier): Modifier = this.then(other)
-
-/**
- * Operator function to apply a block of code to the current Modifier.
- *
- * @param block A lambda function with a receiver of type Modifier.
- * @return A Modifier that is the result of applying the block to the current Modifier.
- */
-operator fun Modifier.invoke(block: Modifier.() -> Unit): Modifier = this.apply(block)
+operator fun Modifier.plus(other: Modifier) = this.then(other)
 
 /**
  * Operator function to apply a block of code to the current Modifier and return a new Modifier.
@@ -111,4 +104,5 @@ operator fun Modifier.invoke(block: Modifier.() -> Unit): Modifier = this.apply(
  * @param block A lambda function with a receiver of type Modifier that returns a Modifier.
  * @return A Modifier that is the result of applying the block to the current Modifier.
  */
-operator fun Modifier.invoke(block: Modifier.() -> Modifier): Modifier = this.then(block())
+@Composable
+operator fun Modifier.invoke(block: @Composable Modifier.() -> Modifier) = this.block()

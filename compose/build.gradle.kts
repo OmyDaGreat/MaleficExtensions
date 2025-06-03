@@ -1,4 +1,5 @@
 import cn.lalaki.pub.BaseCentralPortalPlusExtension.PublishingType
+import org.gradle.kotlin.dsl.implementation
 
 val user: String by project
 val repo: String by project
@@ -41,9 +42,7 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.compose.desktop)
-    implementation(libs.compose.animation)
-    implementation(libs.compose.foundation)
+    implementation(libs.bundles.compose)
     implementation(libs.precompose)
     testImplementation(compose.desktop.currentOs)
     testImplementation(compose.desktop.uiTestJUnit4)
