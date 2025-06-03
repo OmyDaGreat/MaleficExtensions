@@ -3,6 +3,8 @@ $dokka.linkExtension:html
 
 module:compose
 xyz.malefic.ext.application
+xyz.malefic.ext.bool
+xyz.malefic.ext.func
 xyz.malefic.ext.lazy
 xyz.malefic.ext.modifier
 xyz.malefic.ext.precompose
