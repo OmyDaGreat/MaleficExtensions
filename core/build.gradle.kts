@@ -14,6 +14,7 @@ plugins {
     alias(libs.plugins.central)
     `maven-publish`
     signing
+    kotlin("jvm")
 }
 
 group = g
@@ -24,8 +25,6 @@ repositories {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
     withJavadocJar()
     withSourcesJar()
 }
@@ -34,10 +33,12 @@ kotlin {
     jvmToolchain {
         this.languageVersion.set(JavaLanguageVersion.of(17))
     }
+    jvmToolchain(17)
 }
 
 dependencies {
     implementation(libs.kotlinx.coroutines)
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 publishing {
