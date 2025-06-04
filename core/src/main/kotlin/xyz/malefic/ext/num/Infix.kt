@@ -48,16 +48,7 @@ infix fun <T : Number> T.pow(exponent: Int) = this.toDouble().pow(exponent)
  * @return The GCD of the two integers.
  * @receiver The first integer.
  */
-infix fun Int.gcd(other: Int): Int {
-    var a = this
-    var b = other
-    while (b != 0) {
-        val temp = b
-        b = a % b
-        a = temp
-    }
-    return a
-}
+infix fun Int.gcd(other: Int) = gcd(this, other)
 
 /**
  * Computes the least common multiple (LCM) of two integers.

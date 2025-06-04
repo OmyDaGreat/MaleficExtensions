@@ -64,7 +64,7 @@ fun Int.isPrime(): Boolean {
  * @param b The second number.
  * @return The GCD of the two numbers.
  */
-fun gcd(
+tailrec fun gcd(
     a: Int,
     b: Int,
 ): Int = if (b == 0) a else gcd(b, a % b)
