@@ -1,4 +1,7 @@
 [versions]
+agp = "8.10.0"
+android-minSdk = "24"
+android-compileSdk = "34"
 precompose = "1.6.2"
 central = "1.2.8"
 compose = "1.8.2"
@@ -6,8 +9,11 @@ kotlin = "2.2.0"
 kotlinter = "5.1.1"
 kotlinx = "1.10.2"
 dokka = "2.0.0"
+kermit = "2.0.6"
 
 [libraries]
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 compose-animation = { group = "org.jetbrains.compose.animation", name = "animation", version.ref = "compose" }
 compose-foundation = { group = "org.jetbrains.compose.foundation", name = "foundation", version.ref = "compose" }
@@ -15,6 +21,9 @@ compose-desktop = { group = "org.jetbrains.compose.desktop", name = "desktop", v
 kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx" }
 
 [plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
 central = { id = "cn.lalaki.central", version.ref = "central"}
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
