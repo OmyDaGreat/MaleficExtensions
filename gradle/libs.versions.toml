@@ -1,7 +1,7 @@
 [versions]
 precompose = "1.6.2"
 central = "1.2.9"
-compose = "1.8.2"
+compose = "1.9.0"
 kotlin = "2.2.20"
 kotlinter = "5.2.0"
 kotlinx = "1.10.2"
