@@ -85,7 +85,7 @@ fun String.titlecase(): String {
     return split(" ")
         .mapIndexed { index, word ->
             if (index == 0 || !WORDS_NOT_TO_CAPITALIZE.contains(word.lowercase(Locale.getDefault()))) {
-                word.substring(0, 1).uppercase() + word.substring(1).lowercase()
+                word.take(1).uppercase() + word.substring(1).lowercase()
             } else {
                 word.lowercase()
             }

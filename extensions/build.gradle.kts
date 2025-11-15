@@ -54,6 +54,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.animation)
                 implementation(libs.precompose)
+                implementation(libs.kermit)
             }
         }
         val commonTest by getting {
@@ -71,6 +72,10 @@ kotlin {
                 implementation(compose.desktop.uiTestJUnit4)
             }
         }
+    }
+
+    compilerOptions {
+        freeCompilerArgs.add("-Xexpect-actual-classes")
     }
 }
 

@@ -1,121 +1,116 @@
-name: Publish to Maven Central
+name: Publish
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'gradle.properties'
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: 'Version bump type'
+        required: false
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      custom_version:
+        description: 'Custom version (overrides bump)'
+        required: false
+        type: string
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
-  check_version_change:
-    runs-on: ubuntu-latest
-    outputs:
-      version_changed: ${{ steps.check_version.outputs.changed }}
-      new_version: ${{ steps.check_version.outputs.new_version }}
+  publish:
+    name: Release Build and Publish
+    runs-on: macos-latest
     steps:
-      - name: Checkout code
+      - name: Check out code
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Check version change
-        id: check_version
-        run: |
-          git diff -p origin/main~1 origin/main -- gradle.properties > version_diff.txt
-          if grep -q "^+v=" version_diff.txt; then
-            NEW_VERSION=$(grep "^+v=" version_diff.txt | cut -d= -f2)
-            echo "Version changed to $NEW_VERSION"
-            echo "changed=true" >> $GITHUB_OUTPUT
-            echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
-          else
-            echo "No version change detected"
-            echo "changed=false" >> $GITHUB_OUTPUT
-          fi
-
-  publish:
-    needs: check_version_change
-    if: needs.check_version_change.outputs.version_changed == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Set up JDK 17
+      - name: Set up JDK 21
         uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
-          java-version: '17'
-          cache: 'gradle'
-
-      - name: Make Gradle wrapper executable
-        run: chmod +x ./gradlew
+          java-version: 21
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
-
-      - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@v6
         with:
-          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-          passphrase: ${{ secrets.GPG_PASSPHRASE }}
+          gradle-version: "9.2.0"
 
-      - name: Add user_token.xml
-        run: echo "${{ secrets.SONATYPE_TOKEN_XML }}" > user_token.xml
+      - name: Make gradlew Executable
+        run: chmod +x gradlew
 
-      - name: Run lint and format checks
-        run: ./gradlew ktFormatAndLint
+      - name: Install xmllint
+        run: brew install libxml2 && brew link --force libxml2
 
-      - name: Publish to Maven Central
-        run: ./gradlew publishAllToCentralPortal
-        env:
-          ORG_GRADLE_PROJECT_signingKeyId: ${{ secrets.GPG_KEY_ID }}
-          ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.GPG_PASSPHRASE }}
-          ORG_GRADLE_PROJECT_signingKey: ${{ secrets.GPG_PRIVATE_KEY }}
-
-  create_release:
-    needs: [check_version_change, publish]
-    if: needs.check_version_change.outputs.version_changed == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Set up Git
+      - name: Bump version in gradle.properties
+        id: bump_version
         run: |
-          git config --global --add safe.directory $GITHUB_WORKSPACE
+          file="gradle.properties"
+          if [ -n "${{ github.event.inputs.custom_version }}" ]; then
+          new_version="${{ github.event.inputs.custom_version }}"
+          else
+          version_line=$(grep "^v=" "$file" || echo "")
+          version=${version_line#v=}
+          IFS='.' read -r major minor patch <<< "$version"
+          case "${{ github.event.inputs.bump }}" in
+          major)
+          major=$((major+1)); minor=0; patch=0;;
+          minor)
+          minor=$((minor+1)); patch=0;;
+          patch|*)
+          patch=$((patch+1));;
+          esac
+          new_version="$major.$minor.$patch"
+          fi
+          sed -i '' "s/^v=.*/v=$new_version/" "$file"
+          echo "new_version=$new_version" >> $GITHUB_OUTPUT
 
-      - name: Get changelog
+      - name: Commit and push version bump
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore(release): bump version to ${{ steps.bump_version.outputs.new_version }}"
+          file_pattern: gradle.properties
+
+      - name: Extract Maven Central credentials from token block
+        id: extract-creds
+        run: |
+          echo "${{ secrets.SONATYPE_TOKEN_XML }}" > server.xml
+          USERNAME=$(xmllint --xpath "string(//username)" server.xml)
+          PASSWORD=$(xmllint --xpath "string(//password)" server.xml)
+          echo "ORG_GRADLE_PROJECT_mavenCentralUsername=$USERNAME" >> $GITHUB_ENV
+          echo "ORG_GRADLE_PROJECT_mavenCentralPassword=$PASSWORD" >> $GITHUB_ENV
+
+      - name: Publish to MavenCentral
+        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
+        env:
+          ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.GPG_KEY_ID }}
+          ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSPHRASE }}
+          ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_PRIVATE_KEY }}
+
+      - name: Generate changelog since last tag
         id: changelog
         run: |
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          if [ "$PREVIOUS_TAG" != "" ]; then
-            git log $PREVIOUS_TAG..HEAD --oneline > changelog.txt
+          last_tag=$(git describe --tags --abbrev=0 || echo "")
+          if [ -z "$last_tag" ]; then
+            changelog=$(git log --pretty=format:"* %s" )
           else
-            git log --oneline > changelog.txt
+            changelog=$(git log "$last_tag"..HEAD --pretty=format:"* %s")
           fi
-          CHANGELOG=$(cat changelog.txt)
-          echo "CHANGELOG<<EOF" >> $GITHUB_ENV
-          echo "$CHANGELOG" >> $GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV
+          echo "changelog<<EOF" >> $GITHUB_OUTPUT
+          echo "$changelog" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          body: |
-            Changes since last release:
-            ```
-            ${{ env.CHANGELOG }}
-            ```
-          tag_name: "v${{ needs.check_version_change.outputs.new_version }}"
-          name: "Release v${{ needs.check_version_change.outputs.new_version }}"
-          draft: false
-          prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
-          generate_release_notes: true
-          make_latest: true
+          tag_name: v${{ steps.bump_version.outputs.new_version }}
+          name: v${{ steps.bump_version.outputs.new_version }}
+          body: ${{ steps.changelog.outputs.changelog }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
