@@ -2,6 +2,7 @@ package xyz.malefic.extensions.modifier
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -86,9 +87,10 @@ fun Modifier.clickableIf(
     condition: Boolean,
     enabled: Boolean = true,
     onClickLabel: String? = null,
+    interactionSource: MutableInteractionSource? = null,
     role: Role? = null,
     onClick: () -> Unit,
-) = this.modifyIfElse(condition, Modifier.clickable(enabled, onClickLabel, role, onClick), Modifier)
+) = this.modifyIfElse(condition, Modifier.clickable(enabled, onClickLabel, role, interactionSource, onClick), Modifier)
 
 /**
  * Operator function to combine two Modifiers using the `then` method.
