@@ -94,37 +94,11 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSPHRASE }}
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_PRIVATE_KEY }}
 
-      - name: Generate changelog since last tag
-        id: changelog
-        run: |
-          # Ensure we have all tags from origin
-          git fetch --tags --prune
-
-          # Debug: list tags and the most recent tags
-          echo "All tags (most recent first):"
-          git for-each-ref --sort=-creatordate --format '%(refname:strip=2) %(creatordate:iso8601)' refs/tags | sed -n '1,20p'
-
-          # Find the last tag reachable from HEAD
-          last_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          echo "last_tag='$last_tag'"
-
-          if [ -z "$last_tag" ]; then
-            # No tags at all -> include all commits
-            changelog=$(git log --pretty=format:"* %s")
-          else
-            # Commits since last_tag up to current HEAD
-            changelog=$(git log "$last_tag"..HEAD --pretty=format:"* %s")
-          fi
-
-          echo "changelog<<EOF" >> $GITHUB_OUTPUT
-          echo "$changelog" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.bump_version.outputs.new_version }}
           name: v${{ steps.bump_version.outputs.new_version }}
-          body: ${{ steps.changelog.outputs.changelog }}
+          generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
