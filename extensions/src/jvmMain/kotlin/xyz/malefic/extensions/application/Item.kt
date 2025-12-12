@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.key.KeyShortcut
 
 @Composable
-fun item(block: Item.() -> Unit) = Item().apply(block).compose()
+fun item(block: Item.() -> Unit) = Item().apply(block).compose()()
 
 /**
  * Represents an item with various properties and actions.

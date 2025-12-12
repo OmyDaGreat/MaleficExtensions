@@ -5,3 +5,7 @@ plugins {
     alias(libs.plugins.dokka) apply false
     alias(libs.plugins.kotlinter) apply false
 }
+
+repositories {
+    mavenCentral()
+}

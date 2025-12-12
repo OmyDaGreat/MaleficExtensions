@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 val user: String by project
@@ -25,6 +26,7 @@ plugins {
 group = g
 version = v
 
+@OptIn(ExperimentalWasmDsl::class)
 kotlin {
     jvm()
 
@@ -40,10 +42,28 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
 
-    js(IR) {
-        browser()
+    js {
+        browser {
+            testTask {
+                useKarma {
+                    useChromiumHeadless()
+                }
+            }
+        }
         nodejs()
     }
+    wasmJs {
+        browser {
+            testTask {
+                useKarma {
+                    useChromiumHeadless()
+                }
+            }
+        }
+        nodejs()
+    }
+
+    applyDefaultHierarchyTemplate()
 
     @Suppress("unused")
     sourceSets {

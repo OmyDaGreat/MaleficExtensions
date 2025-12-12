@@ -6,7 +6,6 @@ import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.window.ApplicationScope
 import androidx.compose.ui.window.MenuScope
-import androidx.compose.ui.window.Tray
 import androidx.compose.ui.window.TrayState
 import androidx.compose.ui.window.rememberTrayState
 
@@ -17,9 +16,7 @@ import androidx.compose.ui.window.rememberTrayState
  * @param block A lambda with receiver of type TrayFactory to configure the tray icon.
  */
 @Composable
-fun ApplicationScope.tray(block: Tray.() -> Unit) {
-    Tray().apply(block).compose()
-}
+fun ApplicationScope.tray(block: Tray.() -> Unit) = Tray().apply(block).compose()()
 
 /**
  * A factory class for creating and configuring a tray icon.
