@@ -3,9 +3,10 @@ package xyz.malefic.extensions.application
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.input.key.KeyShortcut
+import androidx.compose.ui.window.MenuScope
 
 @Composable
-fun item(block: Item.() -> Unit) = Item().apply(block).compose()()
+fun MenuScope.item(block: ItemBuilder.() -> Unit) = ItemBuilder().apply(block).compose(this)
 
 /**
  * Represents an item with various properties and actions.
@@ -17,7 +18,7 @@ fun item(block: Item.() -> Unit) = Item().apply(block).compose()()
  * @property shortcut The keyboard shortcut for the item. Defaults to null.
  * @property onClick The action to be performed when the item is clicked. Defaults to an empty action.
  */
-class Item(
+class ItemBuilder(
     var text: String = "Empty Item",
     var icon: Painter? = null,
     var enabled: Boolean = true,
@@ -40,10 +41,9 @@ class Item(
      * @return A composable function that creates the item.
      */
     @Composable
-    fun compose(): @Composable () -> Unit =
-        {
-            Item(text = text, icon = icon, enabled = enabled, mnemonic = mnemonic, shortcut = shortcut, onClick = onClick)
-        }
+    fun compose(scope: MenuScope) {
+        scope.Item(text, icon, enabled, mnemonic, shortcut, onClick)
+    }
 }
 
 typealias OnClick = () -> Unit

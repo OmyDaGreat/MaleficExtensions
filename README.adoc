@@ -4,101 +4,103 @@
 :toclevels: 3
 :source-highlighter: highlight.js
 
-A collection of Kotlin extensions to enhance productivity and simplify common tasks.
+Malefic Extensions accelerates Kotlin Multiplatform and Compose projects with a curated toolkit of pragmatic extensions. Ship faster by relying on:
 
-== Overview
+* *KMP-first coverage* – Android, JVM, JS, Native, and Web source sets share the same APIs.
+* *Compose-aware utilities* – Dedicated helpers for system trays, menus, and `Modifier` ergonomics.
+* *Battle-tested primitives* – Collections, math helpers, tuples, lazy sequences, and safe function composition.
 
-Malefic Extensions is a library that provides a set of utility extensions for Kotlin projects. It is divided into two main packages:
+== Targets & Distribution
 
-* *Core*: Fundamental extensions for basic Kotlin types and operations
-* *Compose*: Extensions specifically designed for Jetpack Compose UI development
+[cols="1,2,2", options="header"]
+|===
+| Artifact | Targets | Notes
+| `xyz.malefic:extensions` | commonMain, androidMain, jvmMain (Desktop), iosX64/Arm64, iosSimulatorArm64, js (browser + node), wasmJs | Single multiplatform bundle that includes core language utilities plus Compose-aware helpers on the targets that support them.
+|===
+
+Need a refresher on the code layout? Start with link:extensions/src/commonMain/kotlin/xyz/malefic/extensions[`extensions/src/commonMain/...`].
+
+== Feature Matrix
+
+[cols="1,3", options="header"]
+|===
+| Category | Highlights
+| `any` | Nullability helpers and fluent predicates for `Any`.
+| `bool` | Boolean combinators (`ifTrue`, `ifFalse`, guards).
+| `collection` | `AccessOrderLinkedHashMap`, multiplatform `ConcurrentHashMap`, and expressive list utilities.
+| `func` | Memoization (`Cache`), composition operators, safe invocation wrappers, infix DSLs.
+| `lazy` | Lightweight lazy list builder for streamed evaluation.
+| `modifier` | Compose `Modifier` operators (`showIf`, `roundedBackgroundWithPadding`, `modifyIfElse`, `clickableIf`).
+| `num` | Infix math DSL, factorial/triangular sequences, prime and gcd utilities.
+| `tree` | `TreeNode` structure with traversal helpers.
+| `tuple` | Extended tuples (Triple → Decuple) with destructuring support.
+| `application` | Compose Desktop tray/menu helpers (`Tray`, `Item`).
+| `file`, `stream`, `string` | File-tree builders, stream transformations, and string predicates.
+|===
 
 == Installation
 
-[source,kotlin]
-----
-// For core extensions
-implementation("xyz.malefic:ext-core:$version")
-
-// For compose extensions
-implementation("xyz.malefic:ext-compose:$version")
-----
-
-== Core Package
-
-The core package provides extensions for fundamental Kotlin types and operations, organized into the following categories:
-
-=== Any Extensions
-Extensions for the `Any` type.
-
-=== Boolean Handling
-Utilities for working with boolean values.
-
-=== Function Utilities
-* *Cache*: Function memoization and caching utilities
-* *Composition*: Function composition utilities
-* *Operator*: Operator overloads for functions
-* *Safe*: Safe function execution utilities
-
-=== File Extensions
-Utilities for working with files, including building file trees.
-
-=== Numeric Utilities
-* *Infix*: Infix operators for numeric operations
-* *Math*: Mathematical functions (factorial, triangular numbers, prime checking, GCD)
-
-=== List Extensions
-Utilities for working with lists.
-
-=== String Extensions
-String manipulation and checking utilities.
-
-=== Tree Data Structure
-Tree node implementation and traversal utilities.
-
-=== Tuple Data Structures
-Extended tuple implementations (Triple, Quadruple, Quintuple, etc. up to Decuple).
-
-== Compose Package
-
-The compose package provides extensions for Jetbrains Compose UI development, focusing on:
-
-=== Application Components
-* *Tray*: Utilities for creating and configuring system tray icons
-* *Item*: Utilities for creating menu items with various properties
-
-=== Modifier Extensions
-Extensions for the Compose `Modifier` class:
-
-* Conditional visibility (`showIf`, `animateVisibility`)
-* Styling utilities (`roundedBackgroundWithPadding`)
-* Conditional modifications (`modifyIf`, `modifyIfElse`, `clickableIf`)
-* Operator overloads for combining modifiers
-
-== Examples
-
-=== Core Examples
+Add the single artifact wherever you need it. Replace `$version` with the desired release (see link:LICENSE[releases] or `git tag -l`).
 
 [source,kotlin]
 ----
-// Function composition
-val addOne = { x: Int -> x + 1 }
-val multiplyByTwo = { x: Int -> x * 2 }
-val addOneThenMultiplyByTwo = addOne andThen multiplyByTwo
-val result = addOneThenMultiplyByTwo(3) // Returns 8
-
-// Factorial calculation
-val factorial = 5.factorial() // Returns 120
-
-// String extensions
-val containsAny = "Hello World".containsAny("Hello", "Goodbye") // Returns true
+// settings.gradle.kts
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
 ----
 
-=== Compose Examples
+=== Multiplatform build.gradle.kts
 
 [source,kotlin]
 ----
-// Creating a tray icon
+kotlin {
+    sourceSets {
+        val commonMain by getting {
+            dependencies {
+                implementation("xyz.malefic:extensions:$version")
+            }
+        }
+        val jvmMain by getting {
+            dependencies {
+                // Compose dependencies remain yours to configure
+                implementation(compose.desktop.currentOs)
+            }
+        }
+    }
+}
+----
+
+Compose-aware helpers (tray/menu, `Modifier`, etc.) live in the same artifact—just add the Compose runtime/foundation dependencies to the targets where you use them.
+
+== Usage
+
+=== Core snippets
+
+[source,kotlin]
+----
+// Function composition DSL
+val increment = { x: Int -> x + 1 }
+val double = { x: Int -> x * 2 }
+val pipeline = increment andThen double
+val composed = pipeline(3) // 8
+
+// Numeric helpers
+val factorial = 5.factorial()         // 120
+val triangular = 7.triangular()       // 28
+val isPrime = 97.isPrime()            // true
+
+// String predicates
+val containsAny = "Hello World".containsAny("Hello", "Goodbye") // true
+----
+
+=== Compose snippets
+
+[source,kotlin]
+----
+// Tray + menu setup (Compose Desktop)
 ApplicationScope.tray {
     icon = painterResource("icon.png")
     tooltip = "My Application"
@@ -109,7 +111,7 @@ ApplicationScope.tray {
     }
 }
 
-// Using modifier extensions
+// Modifier helpers
 Box(
     modifier = Modifier
         .showIf(isVisible)
@@ -118,6 +120,19 @@ Box(
 )
 ----
 
+== Documentation & Support
+
+* Browse the source: link:extensions/src/[`extensions/src/...`].
+* Dokka HTML is generated via `./gradlew dokkaGenerateModuleHtml` and published under `build/dokka`.
+* Issues and questions: open a GitHub issue with reproduction steps and target platform info.
+
+== Contributing
+
+1. Fork, branch (`feature/my-improvement`), and keep changes scoped.
+2. Add or update tests/examples alongside new extensions.
+3. Run `./gradlew build` (plus `dokkaGenerateModuleHtml` if docs change) before opening a PR.
+4. Describe intent, affected modules, and testing notes in the pull request template.
+
 == License
 
-This project is licensed under the MIT License - see the link:LICENSE[LICENSE] file for details.
+Malefic Extensions is distributed under the MIT License. See link:LICENSE[LICENSE] for the full text.

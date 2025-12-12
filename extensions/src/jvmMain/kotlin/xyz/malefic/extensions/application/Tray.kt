@@ -8,6 +8,7 @@ import androidx.compose.ui.window.ApplicationScope
 import androidx.compose.ui.window.MenuScope
 import androidx.compose.ui.window.TrayState
 import androidx.compose.ui.window.rememberTrayState
+import androidx.compose.ui.window.Tray as ComposeTray
 
 /**
  * Creates a tray with the specified properties.
@@ -60,7 +61,7 @@ class Tray(
     @Composable
     fun compose(): @Composable ApplicationScope.() -> Unit =
         {
-            Tray(icon, state ?: rememberTrayState(), tooltip, onAction, menu)
+            ComposeTray(icon, state ?: rememberTrayState(), tooltip, onAction, menu)
         }
 }
 
