@@ -4,7 +4,7 @@ android-minSdk = "24"
 android-compileSdk = "36"
 precompose = "1.6.2"
 compose = "1.9.3"
-kotlin = "2.2.21"
+kotlin = "2.3.0"
 kotlinter = "5.3.0"
 kotlinx = "1.10.2"
 kermit = "2.0.8"
@@ -18,9 +18,9 @@ precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx" }
 
 [plugins]
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-vanniktech-mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }
+android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech" }
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
 compose-kotlin = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
