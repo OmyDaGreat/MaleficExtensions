@@ -1,6 +1,6 @@
 import com.android.build.api.dsl.androidLibrary
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
 
 val user: String by project
 val dev: String by project
@@ -48,7 +48,7 @@ kotlin {
         }
 
         compilerOptions {
-            jvmTarget.set(JVM_11)
+            jvmTarget.set(JVM_21)
         }
     }
 
@@ -79,31 +79,19 @@ kotlin {
 
     applyDefaultHierarchyTemplate()
 
-    @Suppress("unused")
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(libs.kotlinx.coroutines)
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.animation)
+                implementation(libs.compose.runtime)
+                implementation(libs.compose.foundation)
                 implementation(libs.precompose)
                 implementation(libs.kermit)
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation(libs.kotlin.test)
             }
         }
         val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
-            }
-        }
-        val jvmTest by getting {
-            dependencies {
-                implementation(compose.desktop.uiTestJUnit4)
             }
         }
     }

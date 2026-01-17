@@ -1,3 +1,4 @@
+### Gradle ###
 .gradle
 build/
 !gradle/wrapper/gradle-wrapper.jar
@@ -15,6 +16,7 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+.idea/
 
 ### Kotlin ###
 .kotlin
@@ -44,9 +46,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 .lastDeploymentsId
-.qodo
+kotlin-js-store/
 
 ### Publishing ###
 user_token.xml
-
-.idea/
